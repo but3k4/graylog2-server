@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Author: Claudio Filho <claudio.filho@locaweb.com.br>
+
+#export DH_VERBOSE=1
+
+build: build-stamp
+
+build-stamp: 
+	dh_clean
+	dh_testdir
+	touch build-stamp
+
+clean: 
+	dh_testdir
+	dh_testroot 
+	rm -f build-stamp install-stamp
+	dh_clean
+
+install: build build-stamp
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	dh_install
+	install -m0644 graylog2.conf.example debian/graylog2-server/etc/graylog2.conf
+
+binary-indep: build install
+
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installdirs
+	dh_installchangelogs
+	dh_installinit
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

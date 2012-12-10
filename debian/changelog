@@ -1,0 +1,5 @@
+graylog2-server (0.9.6p1-1) stable; urgency=low
+
+  * Initial Package Release.
+
+ -- Claudio Filho <claudio.filho@locaweb.com.br>  Tue, 04 Dec 2012 12:57:14 -0200

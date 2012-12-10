@@ -1,0 +1,25 @@
+#!/bin/sh
+# postinst script for graylog2-server
+#
+# Author: Claudio Filho <claudio.filho@locaweb.com.br>
+
+set -e
+
+case "$1" in
+    configure|reconfigure)
+        chmod +x /etc/init.d/graylog2-server 
+        update-rc.d -f graylog2-server defaults >/dev/null
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

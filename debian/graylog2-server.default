@@ -1,0 +1,12 @@
+# Defaults for graylog2-server initscript
+# sourced by /etc/init.d/graylog2-server
+# installed at /etc/default/graylog2-server by the maintainer scripts
+
+# Java dir
+DIR=/usr/share/java
+
+# Pid file
+PID_FILE=/var/run/graylog2-server.pid
+
+# Java options
+JAVA_OPTS="-Xms128m -Xmx128m -Xss256k -XX:MaxPermSize=1g"

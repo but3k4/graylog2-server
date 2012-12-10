@@ -1,0 +1,38 @@
+#!/bin/sh
+# postrm script for graylog2-server
+#
+# Author: Claudio Filho <claudio.filho@locaweb.com.br>
+
+set -e
+
+case "$1" in
+    remove)
+    ;;
+
+    purge)
+        update-rc.d -f graylog2-server remove >/dev/null
+        if [ -x "/etc/init.d/graylog2-server" ]; then
+            if [ -x "`which invoke-rc.d 2>/dev/null`" ]; then
+                invoke-rc.d graylog2-server stop || exit $?
+            else
+                /etc/init.d/graylog2-server stop || exit $?
+            fi
+        fi
+        rm -f /etc/graylog2.conf
+    ;;
+
+    upgrade)
+    ;;
+
+    failed-upgrade|abort-install|abort-upgrade|disappear)
+    ;;
+
+    *)
+        echo "postrm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0
