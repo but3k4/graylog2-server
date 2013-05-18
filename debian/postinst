@@ -7,7 +7,7 @@ set -e
 
 case "$1" in
     configure|reconfigure)
-        chmod +x /etc/init.d/graylog2-server 
+        chmod +x /etc/init.d/graylog2-server
         update-rc.d -f graylog2-server defaults >/dev/null
     ;;
 

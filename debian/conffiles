@@ -1,2 +1,2 @@
-/etc/default/graylog2-server
-/etc/graylog2.conf
+/etc/graylog2/graylog2.conf
+/etc/graylog2/elasticsearch.yml

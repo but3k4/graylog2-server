@@ -1,1 +1,4 @@
+elasticsearch.yml.example etc/graylog2/
+graylog2.conf.example etc/graylog2/
 graylog2-server.jar usr/share/java/
+plugin var/lib/graylog2/

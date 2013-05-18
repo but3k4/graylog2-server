@@ -1,2 +1,3 @@
-etc
+etc/graylog2
 usr/share/java
+var/lib/graylog2

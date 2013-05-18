@@ -24,7 +24,10 @@ install: build build-stamp
 	dh_prep
 	dh_installdirs
 	dh_install
-	install -m0644 graylog2.conf.example debian/graylog2-server/etc/graylog2.conf
+	mv debian/graylog2-server/etc/graylog2/graylog2.conf.example debian/graylog2-server/etc/graylog2/graylog2.conf
+	mv debian/graylog2-server/etc/graylog2/elasticsearch.yml.example debian/graylog2-server/etc/graylog2/elasticsearch.yml
+	sed -i '/^plugin_dir/s/= .*/= \/var\/lib\/graylog2\/plugin/g;/^elasticsearch_config_file/s/= .*/= \/etc\/graylog2\/elasticsearch.yml/g' \
+		debian/graylog2-server/etc/graylog2/graylog2.conf
 
 binary-indep: build install
 
