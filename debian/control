@@ -3,12 +3,14 @@ Priority: extra
 Maintainer: Claudio Filho <claudio.filho@locaweb.com.br>
 Build-Depends: debhelper (>= 8.0.0), devscripts
 Standards-Version: 3.9.3
-Section: java
+Section: admin
 Homepage: http://www.graylog2.org
 
 Package: graylog2-server
+Section: admin
 Architecture: all
-Depends: ${misc:Depends}, openjdk-7-jre | openjdk-6-jre
+Depends: ${misc:Depends}, openjdk-7-jre-headless | openjdk-6-jre-headless
+Suggests: mongodb-server, elasticsearch, rabbitmq-server
 Description: Graylog2 is an open source syslog implementation
  that stores your logs in ElasticSearch. It consists of a
  server written in Java that accepts your syslog messages

@@ -5,8 +5,16 @@
 
 set -e
 
+APP_PATH="/var/www/graylog2-web"
+
 case "$1" in
     configure|reconfigure)
+        if ! getent group graylog2 2> /dev/null; then
+            addgroup --quiet --system graylog2
+        fi
+        if ! getent passwd graylog2 2> /dev/null; then
+            adduser --quiet --system --no-create-home --disabled-password --gid $(getent group graylog2 | cut -d: -f3) --home ${APP_PATH} graylog2
+        fi
         chmod +x /etc/init.d/graylog2-server
         update-rc.d -f graylog2-server defaults >/dev/null
     ;;

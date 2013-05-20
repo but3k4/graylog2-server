@@ -1,3 +1,3 @@
 version=3
 
-https://github.com/downloads/Graylog2/graylog2-server/graylog2-server-(.*)\.tar\.gz
+http://download.graylog2.org/graylog2-server/graylog2-server-(.*)\.tar\.gz

@@ -1,3 +1,11 @@
+graylog2-server (0.11.0-2) stable; urgency=low
+
+  * Fixing watch file.
+  * Fixing session on control file.
+  * Fixing postinst file to create the graylog2 user.
+
+ -- Claudio Filho <claudio.filho@locaweb.com.br>  Mon, 20 May 2013 11:18:47 -0300
+
 graylog2-server (0.11.0-1) stable; urgency=low
 
   * New Upstream Release.
